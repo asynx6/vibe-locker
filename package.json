@@ -1,19 +1,42 @@
 {
   "name": "vibe-locker",
-  "version": "0.1.0",
-  "description": "Find leaked API keys and exposed configs in vibe-coded websites before strangers do. Zero dependency, one command.",
+  "version": "0.2.0",
+  "description": "Find leaked API keys and exposed configs in vibe-coded websites before strangers do. Zero dependency, one command, MCP server for AI agents.",
   "main": "vibe-locker.js",
   "type": "module",
-  "bin": { "vibe-locker": "vibe-locker.js" },
+  "bin": {
+    "vibe-locker": "vibe-locker.js"
+  },
   "scripts": {
     "test": "node test.js"
   },
   "keywords": [
-    "security", "api-keys", "secret-scanning", "vibe-coding", "leak-detection",
-    "openai", "anthropic", "netlify", "vercel", "owasp", "cli"
+    "security",
+    "api-keys",
+    "secret-scanning",
+    "vibe-coding",
+    "leak-detection",
+    "openai",
+    "anthropic",
+    "netlify",
+    "vercel",
+    "owasp",
+    "cli"
   ],
-  "repository": { "type": "git", "url": "git+https://github.com/asynx6/vibe-locker.git" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asynx6/vibe-locker.git"
+  },
   "author": "asynx6",
   "license": "MIT",
-  "engines": { "node": ">=18" }
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "lib/",
+    "mcp/",
+    "vibe-locker.js",
+    "README.md",
+    "LICENSE"
+  ]
 }

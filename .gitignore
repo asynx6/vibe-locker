@@ -3,6 +3,6 @@ node_modules/
 debug*.mjs
 gen-demo.mjs
 serve-demo.cjs
-demo-site/.env
-demo-site/app.js
+demo-site/
+test-fixtures.log
 *.log

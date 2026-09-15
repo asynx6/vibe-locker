@@ -43,11 +43,24 @@ them.**
 ## Usage
 
 ```bash
-npx vibe-locker https://your-site.com     # crawl a live site
-npx vibe-locker ./my-project              # scan a folder
-npx vibe-locker --git                     # scan tracked files (CI gate)
-npx vibe-locker <target> --json           # machine-readable
+npx vibe-locker https://your-ai-site.com     # crawl site + probe config files
+npx vibe-locker ./my-project                 # scan a folder
+npx vibe-locker --git                        # scan tracked files (CI gate)
+npx vibe-locker <target> --json              # machine-readable
 ```
+
+### For AI agents (MCP)
+
+Claude Desktop, OpenCode, Cursor, Cline — anything MCP speaks:
+
+```json
+{ "mcpServers": { "vibe-locker": { "command": "npx", "args": ["-y", "vibe-locker", "mcp"] } } }
+```
+
+Tools: `vibe_locker_scan_text` (paste a config/code block),
+`vibe_locker_scan_dir` (check a project before pushing),
+`vibe_locker_scan_url` (crawl a site you own). Values come back masked —
+an agent can be told "fix the findings" without ever seeing the secret.
 
 Exit code `2` when critical findings exist — wire it into CI:
 

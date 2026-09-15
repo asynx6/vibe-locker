@@ -17,7 +17,16 @@ import { renderReport } from './lib/report.js';
 
 const argv = process.argv.slice(2);
 const flags = new Set(argv.filter((a) => a.startsWith('--')));
-const target = argv.find((a) => !a.startsWith('--'));
+
+// subcommand: vibe-locker mcp — JSON-RPC stdio server for MCP hosts
+if (argv[0] === 'mcp') {
+  await import('./mcp/server.mjs');
+} else {
+  await run();
+}
+
+async function run() {
+const target = argv.find((a) => !a.startsWith('--') && a !== 'mcp');
 
 if (!target && !flags.has('--git')) {
   console.log(`vibe-locker — leaked-key detector for AI-built sites & repos
@@ -132,3 +141,4 @@ if (!existsSync(target)) {
 const { findings, files } = scanFolder(target);
 console.log(renderReport({ target, findings, files }, { json: flags.has('--json'), showAll: flags.has('--show-all') }));
 process.exit(findings.some((f) => f.sev === 'critical') ? 2 : 0);
+}
